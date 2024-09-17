@@ -1,0 +1,288 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+:root {
+  /* Colors */
+  --brand-green: #34803e;
+  --nav-green: #196d37;
+  --hawkes-blue: #d4dbee;
+  --main-blue: #0f1e56;
+  --grey: #5a607f;
+  --seashell-gray: #f8f4f2;
+  --light-gray: #eef3f6;
+  --container-border-grey: #bec8e1; /* main container border color */
+  --footer-link-grey: #7E84A3; /* footer links grey */
+  --red: #c90303;
+  --white: #fff;
+  --light-white: #f1f1f1;
+  --white-smoke: #f3f5fa;
+  --black: #000;
+  --rock-blue: #919eb7;
+  --sidebar-footer-border:#c0c4d7;
+  --bg-color:#F4F6F8; /*body bg color*/
+  --footer-copyright-color: #5A607F;
+  --sidebar-text-color: #0F1E56;
+  --footer-height: 20px;
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+.w-100 {
+  width: 100% !important;
+}
+/* Spacing Common CSS */
+.p-0 {
+  padding: 0px !important;
+}
+.ml-10 {
+  margin-left: 10px !important;
+}
+.mr-10 {
+  margin-right: 10px !important;
+}
+.mt-10{
+  margin-top: 10px!important;
+}
+.mt-15 {
+  margin-top: 15px;
+}
+/* Font */
+.fs-11 {
+  font-size: 11px !important;
+}
+.fs-12 {
+  font-size: 12px !important;
+}
+.fs-13 {
+  font-size: 13px !important;
+}
+.fs-14 {
+  font-size: 14px !important;
+}
+.fs-15 {
+  font-size: 15px !important;
+}
+.fs-16{
+  font-size: 16px !important;
+}
+.fw-500 {
+  font-weight: 500 !important;
+  font-family: "Roboto", sans-serif !important;
+}
+.fw-600 {
+  font-weight: 600 !important;
+  font-family: "Roboto", sans-serif !important;
+}
+label.form-label {
+  color: #000;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+input.form-control {
+  padding: 0.3rem 0.75rem!important;
+}
+/* Scrollbar css */
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #b0b2c6;
+    border-radius: 10px; 
+    border: 3px solid #f1f1f1; 
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555; 
+}
+::-webkit-scrollbar-corner {
+    background-color: #f1f1f1;
+}
+/* Sidebar css */
+/* Add Button */
+.sidebar-add-btn{
+    width: 130px;
+    background-color: #D6660C;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* Container CSS */
+
+.sidebar-wrapper {
+  transition: all 0.3s ease;
+}
+.sidebar-wrapper.collapsed {
+  width: 80px;
+}
+.sidebar-menu.active {
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0px 6px 11.1px 0px rgba(38, 81, 124, 0.2);
+  border-left: solid 4px var(--brand-green);
+}
+.sidebar-menu:hover {
+  background-color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+}
+#toggle-btn {
+  background-color: transparent;
+  border: none;
+}
+/* Sidebar container styles */
+.wrapper {
+  width: 100%;
+  height: calc(100vh - 104px);
+  background-color: var(--bg-color);
+  display: flex;
+}
+.content-page {
+  width: 100%;
+  height: 100%;
+}
+main.container-fluid {
+  height: calc(100% - var(--footer-height));
+  padding: 0.5rem;
+}
+.content {
+  border: solid 1px var(--container-border-grey);
+  border-radius: 4px;
+  height: 100%;
+  background: var(--white);
+}
+aside.sidemenu {
+  position: relative;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  width: 250px;
+  height: calc(100vh - 104px);
+  display: flex;
+  flex-direction: column;
+}
+
+aside.sidemenu::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-image: url(../images/sidebar-image.png);
+  background-repeat: no-repeat;
+  background-size: 100px;
+  background-position: bottom left;
+  opacity: 1;
+  z-index: 0;
+  transition: opacity 0.3s ease;
+}
+.sidemenu.default-opacity::before {
+  opacity: 1;
+}
+/* Reduced opacity for more than 6 menus */
+.sidemenu.low-opacity::before {
+  opacity: 0.3;
+}
+aside .p-2 {
+  position: relative;
+  /* z-index: 1; */
+}
+.sidemenu-wrapper{
+  overflow-y: auto;
+  max-height: 80vh;
+}
+footer {
+  height: var(--footer-height);
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+}
+.footer-copyright-wrapper{
+    color: var(--footer-copyright-color);
+}
+.link-wrapper a,
+span {
+  color: var(--footer-link-grey);
+}
+aside.shrink {
+  width: 60px;
+}
+/* Sidebar header container */
+.sidebar-header {
+    color: var(--red);
+}
+.sidebar-text{
+    color: var(--sidebar-text-color);
+}
+.sidebar-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+/* Shrinked sidebar header container: center the toggle button */
+.shrink .sidebar-header-container {
+  justify-content: center; /* Center horizontally */
+}
+/* Sidebar menu item */
+.sidebar-menu {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  max-height: 40px;
+  transition: padding 0.3s ease;
+}
+/* Hide the text when sidebar is shrunk */
+.shrink .sidebar-text,
+.shrink .sidebar-header {
+  display: none;
+}
+/* Adjust alignment for the icon when the sidebar is shrunk */
+.shrink .sidebar-menu {
+  justify-content: center;
+}
+/* Center the icons within the shrunk menu */
+.shrink .sidebar-menu img {
+  display: block;
+  margin: 0 auto;
+}
+/* To ensure the entire sidebar content is vertically centered */
+.shrink .d-flex.flex-column {
+  flex-grow: 1;
+  justify-content: center; 
+}
+/* To center the toggle-btn within its container when the sidebar is shrunk */
+.shrink #toggle-btn {
+  margin: 0 auto;
+  display: block;
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+.wrapper{
+  padding-top: 60px;
+}
+aside.sidemenu{
+  display: none;
+}
+}
+
+/* Container CSS ends */
+
